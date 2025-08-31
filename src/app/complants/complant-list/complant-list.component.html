@@ -1,0 +1,54 @@
+<div class="container">
+    <div class="row mt-5">
+        <h2 class="text-center mb-5 headingstyle">Complants List</h2>
+        <div class="col-sm-4 d-flex align-items-stretch justify-content-center" *ngFor="let data of complantlistData">
+            <div class="card shadow mb-4" style="width: 18rem;">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">{{data.companytitle}}</h5>
+                    <h6 class="card-subtitle mb-2 text-body-secondary">{{data.departmentname}}</h6>
+                    <p class="card-text">{{data.details}}</p>
+                    <button  class="btn btn-outer-primary offset-9" (click)="showDialog(data)">open</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-5 flex justify-content-center">
+        <p-dialog header="Complant Details" [modal]="true" [(visible)]="visible" [style]="{ width: '30rem',}">
+            <span class="p-text-secondary block mb-5">Complant Details.</span>
+          <div >
+            <div class=" row mb-3">
+                <div class="col-md-4">
+                    <label for="username" class="form-label">Created By</label>
+                    <input  class="form-control" [value]="selectedComplaint.fullname" readonly />
+                </div>
+                <div class="col-md-4">
+                    <label for="username" class="form-label">Department</label>
+                    <input  class="form-control" [value]="selectedComplaint.departmentname" readonly />
+                </div>
+                <div class="col-md-4">
+                    <label for="username" class="form-label">SubDepartment</label>
+                    <input  class="form-control" [value]="selectedComplaint.subdepartmentname" readonly/>
+                </div>
+             </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Complant Title</label>
+                <input class="form-control" [value]="selectedComplaint.companytitle" readonly/>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Details</label>
+               <textarea class="form-control" [value]="selectedComplaint.details" readonly></textarea>
+            </div>
+            <div class="mb-3 col-md-4">
+                <label for="email" class="form-label">Status</label>
+               <input class="form-control" [(ngModel)]="selectedComplaint.Status">
+            </div>
+            <div class="flex justify-content-end gap-3">
+                <button class="btn btn-success me-2" (click)="SaveComplantData(selectedComplaint)">Save</button>
+                <button class="btn btn-warning" (click)="visible = false">Cancel</button>
+            </div>
+        </div>
+        </p-dialog>
+    </div>
+</div>
+
+

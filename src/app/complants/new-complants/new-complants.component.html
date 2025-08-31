@@ -1,0 +1,53 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 d-flex justify-content-center align-items-center">
+            <img src="assets\login-image.webp" width="80%">
+        </div>
+        <div class="col-md-6 d-flex justify-content-center align-items-center" style="height: 85vh;">
+            <div class="shadow-sm rounded-3 p-4" style="width:100%; max-width: 500px;">
+                <h3 class="text-center mb-4">New Complaint</h3>
+                <form [formGroup]="complantfrm" (ngSubmit)="submitComplantfrm()">
+                    <div class="row mb-3">
+                        <div class="col-sm-6">
+                            <label class="form-label">Select Department:</label>
+                            <select class="form-select" (change)="onDepartmentChange($event)"
+                                formControlName="departmentname">
+                                <option value="" disabled selected>Select</option>
+                                <option *ngFor="let list of departmentList" >{{list.name}}</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-6">
+                            <label class="form-label">Select SubDepartment:</label>
+                            <select class="form-select" formControlName="subdepartmentname">
+                                <option value="" disabled selected>Select</option>
+                                <option *ngFor="let lists of subDepartmentList">{{lists.name}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Company Title</label>
+                        <input type="text" class="form-control" formControlName="companytitle">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Details</label>
+                        <textarea class="form-control" formControlName="details"></textarea>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-sm-8">
+                            <input type="checkbox" [(ngModel)]="isAlreadyReportedThis"
+                                [ngModelOptions]="{standalone:true}" class="form-check-input"> Have You Already Raised
+                            Complant For this.
+                        </div>
+                        <div class="col-sm-4" *ngIf="!isAlreadyReportedThis">
+                            <input type="text" class="form-control" formControlName="oldticketno"
+                                placeholder="Old Ticket No">
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <button class="btn btn-primary w-50">Create</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

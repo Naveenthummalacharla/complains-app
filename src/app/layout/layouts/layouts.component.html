@@ -1,0 +1,10 @@
+<div class="card">
+    <p-menubar [model]="items">
+        <ng-template pTemplate="start">
+            <h4 class="fs-5 ms-5 mt-2 heading-styles">Complant Portal</h4>
+        </ng-template>
+        <span class="col-sm me-5 font-styles"><img [src]="profilepic" class="rounded-5 me-3" width="40" height="40" *ngIf="profilepic"><i class="bi bi-person-bounding-box me-2 text-black" *ngIf="!profilepic"></i>{{userName}}</span>
+        <a class="col-sm ms-5 btn btn-white logout-btn " type="button" (click)="Logout()">Logout</a>
+    </p-menubar>
+</div>
+<router-outlet></router-outlet>

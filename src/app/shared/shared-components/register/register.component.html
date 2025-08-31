@@ -1,0 +1,52 @@
+<div class="container">
+    <div class="row justify-content-center align-items-center" style="height: 100vh;">
+        <h2 class="text-center fst-italic mt-5">Complants App</h2>
+        <div class="col-lg-7 text-center">
+            <img src="assets\login-image.webp" width="70%">
+        </div>
+     <div class="col-lg-5">
+        <div class="shadow-sm p-4 rounded-3" style="width: 100%; max-width: 500px;">
+            <h4 class="text-center fst-italic p-4"><i class="bi bi-person-circle fs-3 me-2"></i>Register</h4>
+          <form [formGroup]="registerForm" (ngSubmit)="submitForm()">
+            <div class="mb-3">
+                <label class="form-label">Enter Mail</label><span class="text-danger">*</span>
+                <input type="mail" class="form-control" formControlName="mail" placeholder="Mail" autofocus>
+                <div class="text-danger" *ngIf="registerForm.controls['mail'].dirty || registerForm.controls['mail'].touched">
+                  <div *ngIf="registerForm.get('mail')?.errors?.['required']">Required Mail</div>
+                  <div *ngIf="registerForm.get('mail')?.errors?.['email']">Invalid Mail</div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Enter FullName</label><span class="text-danger">*</span>
+                <input type="text" class="form-control" formControlName="fullname" placeholder="FullName">
+                <div class="text-danger" *ngIf="registerForm.controls['fullname'].dirty || registerForm.controls['fullname'].touched">
+                   <div *ngIf="registerForm.get('fullname')?.errors?.['required']">Invalid Fullname</div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Profile Pic</label>
+                <input type="file" class="form-control" (change)="FileSelected($event)" formControlName="profilepic">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Enter UserName</label><span class="text-danger">*</span>
+                <input type="text" class="form-control"  formControlName="username" placeholder="UserName">
+                <div class="text-danger" *ngIf="registerForm.controls['username'].dirty || registerForm.controls['username'].touched">
+                    <div *ngIf="registerForm.get('username')?.errors?.['required']">Required Username</div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Enter Password</label><span class="text-danger">*</span>
+                <input type="password" class="form-control" formControlName="password" placeholder="Passowrd">
+                <div class="text-danger" *ngIf="registerForm.controls['password'].dirty || registerForm.controls['password'].touched">
+                    <div *ngIf="registerForm.get('password')?.errors?.['required']">Required Password</div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <button type="submit" class="btn btn-primary text-center w-100" >Register</button>
+            </div>
+            If You Already Have an Account?<a href="#" class="text-danger">Login</a>
+          </form>
+        </div>
+     </div>
+    </div>
+</div>

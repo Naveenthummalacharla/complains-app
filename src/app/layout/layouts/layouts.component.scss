@@ -1,0 +1,40 @@
+::ng-deep .p-menuitem-link{
+    text-decoration: none;
+    color:black
+}
+::ng-deep .p-menubar{
+    height:3rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+    ::ng-deep .p-menubar-root-list{
+        margin-bottom: 0rem;
+    }
+
+::ng-deep .p-menuitem-text{
+    color:black;
+    font-weight:600;
+    margin-left: 0.1rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.font-styles{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-style: italic;
+    font-weight: bold;
+    color:darkblue;
+    font-size:larger;
+}
+
+.logout-btn{
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-weight: 600;
+  color:green;
+}
+.heading-styles{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color:navy;
+    font-weight:lighter;
+}
+.custom-img-size {
+    font-size: medium;
+  }
